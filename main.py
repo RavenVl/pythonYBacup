@@ -14,7 +14,7 @@ parser = argparse.ArgumentParser(description='Backups files to YandexDisk')
 parser.add_argument('-d' ,'--date' , action='store_true' , help='Backups files to YandexDisk by date')
 logger = loguru.logger
 logger.level("INFO")
-logger.add("log_file.log", format="{time:DD-MM-YYYY HH:mm:ss} | {level} | {message}")
+logger.add("log_file.log", format="{time:DD-MM-YYYY HH:mm:ss} | {level} | {message}", rotation="500 MB", compression="zip")
 def run(path, dest_dir):
     """
     Загрузка папок и файлов
